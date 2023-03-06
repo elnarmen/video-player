@@ -13,7 +13,7 @@
 
 Два рабочих примера:
 
-- Страница с минимальными настройками — [example_min.html](./example_min.html)
+- Страница с минимальными настройками — [example_min.html](./index.html)
 - Страница с максимальными настройками — [example_max.html](./example_max.html)
 
 ## Как подключить
