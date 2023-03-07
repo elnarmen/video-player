@@ -16,36 +16,31 @@
       width: 800px; height: 600px;
       box-shadow: 0 0 10px 5px rgba(0,0,0,0.5);
       display: flex;
-      flex-direction: column
+      flex-direction: column;
      }
     .video-container {
-      display: flex;
-      flex-grow: 1
-
+      flex-grow: 1;
     }
     .player-buttons-wrapper {
       background-color:black;
       display: flex;
+      align-items:center;
     }
 
-    .pause-button,
-    .play-button,
-    .volume-button,
-    .mute-button,
-    .fullscreen-button{
+    .button{
       border-style: hidden;
       cursor: pointer;
       color: white;
       background-color: transparent;
-      font-size: 130%;
+      font-size: 25px;
       line-height: 1.5;
-      margin: 5px
+      margin: 5px;
       height: 50px;
       width: 50px;
     }
     .blank-div {
       display: flex;
-      flex-grow: 1
+      flex-grow: 1;
     }
 
   </style>
@@ -54,20 +49,20 @@
     <div class="player" id="player">
       <div class="js-video-container video-container"></div>
       <div class="player-buttons-wrapper">
-        <button class="js-play-button play-button">
+        <button class="js-play-button button">
           <i class="fa fa-play" aria-hidden="true"></i>
         </button>
-        <button class="js-pause-button pause-button">
+        <button class="js-pause-button button">
           <i class="fa fa-pause" aria-hidden="true"></i>
         </button>
-        <button class="js-mute-button mute-button">
+        <button class="js-mute-button button">
           <i class="fa fa-volume-up" aria-hidden="true"></i>
         </button>
-        <button class="js-volume-button volume-button">
+        <button class="js-volume-button button">
           <i class="fa fa-volume-off" aria-hidden="true"></i>
         </button>
         <div class="blank-div"></div>
-        <button class="js-fullscreen-button fullscreen-button">
+        <button class="js-fullscreen-button button">
           <i class="fa fa-expand" aria-hidden="true"></i>
         </button>
 
