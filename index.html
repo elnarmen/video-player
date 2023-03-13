@@ -13,18 +13,20 @@
   <meta name="theme-color" content="#ffffff">
   <style type="text/css">
     .player {
-      width: 800px; height: 600px;
-      box-shadow: 0 0 10px 5px rgba(0,0,0,0.5);
+      width: 800px;
+      height: 600px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
       display: flex;
       flex-direction: column;
+      background-color: black
      }
     .video-container {
       flex-grow: 1;
+      margin-bottom: 3px;
     }
     .player-buttons-wrapper {
       background-color:black;
       display: flex;
-      align-items:center;
     }
 
     .vp-button{
@@ -32,17 +34,22 @@
       cursor: pointer;
       color: white;
       background-color: transparent;
-      font-size: 25px;
-      line-height: 1.5;
-      margin: 5px;
-      height: 50px;
-      width: 50px;
+      font-size: 20px;
+      margin-right: 2px;
+      margin-bottom: 4px;
+      height: 35px;
+      width: 35px;
     }
     .blank-div {
-      display: flex;
       flex-grow: 1;
+      margin-right: 1px;
     }
-
+    .fullscreen-button {
+      width: 34px;
+    }
+    .time-display {
+      color: white;
+    }
   </style>
 </head>
 <body>
@@ -61,8 +68,13 @@
         <button class="js-volume-button vp-button">
           <i class="fa fa-volume-off" aria-hidden="true"></i>
         </button>
+        <div class="time-display">
+          <span class="js-current-time"></span>
+           —
+          <span class="js-duration"></span>
+        </div>
         <div class="blank-div"></div>
-        <button class="js-fullscreen-button vp-button">
+        <button class="js-fullscreen-button vp-button fullscreen-button">
           <i class="fa fa-expand" aria-hidden="true"></i>
         </button>
 
