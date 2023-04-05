@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+  <title>Видеоплеер</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+  <link rel="manifest" href="favicon/site.webmanifest">
+  <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <style type="text/css">
+    .player {
+      width: 800px;
+      height: 600px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      display: flex;
+      flex-direction: column;
+      background-color: black
+     }
+    .video-container {
+      flex-grow: 1;
+      margin-top: 11px;
+    }
+    .player-buttons-wrapper {
+      background-color:black;
+      display: flex;
+      margin-top: 18px;
+    }
+
+    .vp-button{
+      border-style: hidden;
+      cursor: pointer;
+      color: white;
+      background-color: transparent;
+      font-size: 20px;
+      height: 35px;
+      width: 35px;
+      padding-bottom: 9px;
+    }
+    .fullscreen-button {
+      width: 36px;
+    }
+    .viewing-panel {
+      display: flex;
+      flex-grow: 1;
+    }
+    .viewing-progressbar {
+      flex-grow: 1;
+      margin-right: 1px;
+      color: white;
+    }
+    .video-duration {
+      flex-grow: 1;
+      color: white;
+    }
+    .progress-bar {
+      flex-grow: 14;
+      margin-left: 14px;
+      magin-rigth: 14px;
+    }
+    .left-buttons {
+      display: flex;
+    }
+    .volume-button {
+      padding-left: 2px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="player" id="player">
+    <div class="screen js-video-container video-container"></div>
+    <div class="player-buttons-wrapper">
+      <div class="left-buttons">
+        <div class="play-button">
+          <button class="js-play-button vp-button">
+            <i class="fa fa-play" aria-hidden="true"></i>
+          </button>
+          <button class="js-pause-button vp-button">
+            <i class="fa fa-pause" aria-hidden="true"></i>
+          </button>
+        </div>
+        <div class="volume-button">
+          <button class="js-mute-button vp-button">
+            <i class="fa fa-volume-up" aria-hidden="true"></i>
+          </button>
+          <button class="js-volume-button vp-button">
+            <i class="fa fa-volume-off" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+      <div class="viewing-panel">
+          <span class="js-current-time video-duration"></span>
+          <div class="js-progress progress-bar" style="background-color: grey;">
+            <div class="js-progress-slider" style="background-color: red;">Прогресс</div>
+          </div>
+          <span class="js-duration video-duration"></span>
+      </div>
+      <div class="right-buttons">
+        <div class="fullscreen-button">
+          <button class="js-fullscreen-button vp-button">
+            <i class="fa fa-expand" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://unpkg.com/playable@2.10.3/dist/statics/playable.bundle.min.js"></script>
+  <script src="player.js"></script>
+
+  <script type="text/javascript">
+    createPlayer({elementId: 'player'});
+  </script>
+</body>
+</html>

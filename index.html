@@ -1,91 +1,163 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/html">
-<head>
-  <title>Видеоплеер</title>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
-  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
-  <link rel="manifest" href="favicon/site.webmanifest">
-  <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
-  <meta name="msapplication-TileColor" content="#da532c">
-  <meta name="theme-color" content="#ffffff">
-  <style type="text/css">
-    .player {
-      width: 800px;
-      height: 600px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
-      display: flex;
-      flex-direction: column;
-      background-color: black
-     }
-    .video-container {
-      flex-grow: 1;
-      margin-bottom: 3px;
-    }
-    .player-buttons-wrapper {
-      background-color:black;
-      display: flex;
-    }
+  <head>
+    <title>Видеоплеер</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <style type="text/css">
+      .player {
+          width: 800px;
+          height: 600px;
+          box-shadow: 0 0 10px rgba(0,0,0,1);
+          display: flex;
+          flex-direction: column;
+          background-color: black;
+          position: relative;
+      }
 
-    .vp-button{
-      border-style: hidden;
-      cursor: pointer;
-      color: white;
-      background-color: transparent;
-      font-size: 20px;
-      margin-right: 2px;
-      margin-bottom: 4px;
-      height: 35px;
-      width: 35px;
-    }
-    .blank-div {
-      flex-grow: 1;
-      margin-right: 1px;
-    }
-    .fullscreen-button {
-      width: 34px;
-    }
-    .time-display {
-      color: white;
-    }
-  </style>
-</head>
-<body>
+      .video-container {
+          flex-grow: 1;
+          margin-top: 11px;
+      }
+
+      .player-buttons-wrapper {
+          background-color:black;
+          display: flex;
+          margin-top: 18px;
+          justify-content: space-between;
+          align-items: center;
+      }
+
+      .vp-button {
+          border-style: hidden;
+          cursor: pointer;
+          color: white;
+          background-color: transparent;
+          font-size: 20px;
+          height: 35px;
+          width: 35px;
+          padding-bottom: 9px;
+      }
+
+      .fullscreen-button {
+          width: 36px;
+          margin-left: auto;
+      }
+
+      .viewing-panel {
+          position: relative;
+          display: flex;
+          flex-grow: 1;
+          justify-content: space-between;
+          align-items: center;
+          padding: 0 2px;
+          bottom: 5px;
+      }
+
+      .progress-bar {
+          position: relative;
+          height: 4px;
+          width: 100%;
+      }
+
+      .current-time,
+      .video-duration {
+          flex-grow: 1;
+          color: white;
+          font-size: 17px;
+          font-family: 'Roboto';
+      }
+
+      .video-duration {
+          margin-left: 11px;
+      }
+
+      .progress-bar {
+          display: flex;
+          flex-grow: 14;
+          margin-left: 11px;
+          background-color: black;
+          border-radius: 2px;
+      }
+
+      .left-buttons {
+          display: flex;
+      }
+
+      .volume-button {
+          padding-left: 2px;
+      }
+
+      .progress-slider {
+          background-color: red;
+          height: 5px;
+          border-radius: 2px;
+      }
+
+      .dot {
+          height: 8px;
+          width: 8px;
+          background-color: red;
+          border: 3px solid white;
+          border-radius: 50%;
+          display: inline-block;
+          margin-left: -7px;
+          margin-top: -4px;
+      }
+    </style>
+  </head>
+  <body>
     <div class="player" id="player">
-      <div class="js-video-container video-container"></div>
+      <div class="screen js-video-container video-container"></div>
       <div class="player-buttons-wrapper">
-        <button class="js-play-button vp-button">
-          <i class="fa fa-play" aria-hidden="true"></i>
-        </button>
-        <button class="js-pause-button vp-button">
-          <i class="fa fa-pause" aria-hidden="true"></i>
-        </button>
-        <button class="js-mute-button vp-button">
-          <i class="fa fa-volume-up" aria-hidden="true"></i>
-        </button>
-        <button class="js-volume-button vp-button">
-          <i class="fa fa-volume-off" aria-hidden="true"></i>
-        </button>
-        <div class="time-display">
-          <span class="js-current-time"></span>
-           —
-          <span class="js-duration"></span>
+        <div class="left-buttons">
+          <div class="play-button">
+            <button class="js-play-button vp-button">
+              <i class="fa fa-play" aria-hidden="true"></i>
+            </button>
+            <button class="js-pause-button vp-button">
+              <i class="fa fa-pause" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="volume-button">
+            <button class="js-mute-button vp-button">
+              <i class="fa fa-volume-up" aria-hidden="true"></i>
+            </button>
+            <button class="js-volume-button vp-button">
+              <i class="fa fa-volume-off" aria-hidden="true"></i>
+            </button>
+          </div>
         </div>
-        <div class="blank-div"></div>
-        <button class="js-fullscreen-button vp-button fullscreen-button">
-          <i class="fa fa-expand" aria-hidden="true"></i>
-        </button>
-
+        <div class="viewing-panel">
+            <span class="js-current-time current-time"></span>
+            <div class="js-progress progress-bar">
+              <div class="js-progress-slider progress-slider"></div>
+              <span class="dot"></span>
+            </div>
+            <span class="js-duration video-duration"></span>
+        </div>
+        <div class="right-buttons">
+          <div class="fullscreen-button">
+            <button class="js-fullscreen-button vp-button">
+              <i class="fa fa-expand" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-  <script src="https://unpkg.com/playable@2.10.3/dist/statics/playable.bundle.min.js"></script>
-  <script src="player.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://unpkg.com/playable@2.10.3/dist/statics/playable.bundle.min.js"></script>
+    <script src="player.js"></script>
 
-  <script type="text/javascript">
-    createPlayer({elementId: 'player'});
-  </script>
-</body>
+    <script type="text/javascript">
+      createPlayer({elementId: 'player'});
+    </script>
+  </body>
 </html>
