@@ -102,15 +102,27 @@
       }
 
       .dot {
-          height: 8px;
-          width: 8px;
-          background-color: red;
-          border: 3px solid white;
-          border-radius: 50%;
-          display: inline-block;
-          margin-left: -7px;
-          margin-top: -4px;
+        height: 8px;
+        width: 8px;
+        background-color: red;
+        border: 3px solid white;
+        border-radius: 50%;
+        display: inline-block;
+        margin-left: -7px;
+        margin-top: -4px;
+        opacity: 0;
+        transition-property: opacity;
+        transition-duration: 300ms;
+        transition-timing-function: ease-out;
       }
+
+      .progress-bar:hover .dot {
+        opacity: 1;
+        transition-property: opacity;
+        transition-duration: 300ms;
+        transition-timing-function: ease-in;
+      }
+
     </style>
   </head>
   <body>
