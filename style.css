@@ -8,18 +8,15 @@
     display: flex;
     flex-direction: column;
     background-color: black;
-    position: relative;
 }
 
 .video-container {
     flex-grow: 1;
-    margin-top: 11px;
 }
 
 .player-buttons-wrapper {
     background-color:black;
     display: flex;
-    margin-top: 18px;
     justify-content: space-between;
     align-items: center;
 }
@@ -32,56 +29,31 @@
     font-size: 20px;
     height: 35px;
     width: 35px;
-    padding-bottom: 9px;
 }
 
-.fullscreen-button {
-    width: 36px;
-    margin-left: auto;
-}
 
 .viewing-panel {
-    position: relative;
     display: flex;
     flex-grow: 1;
     justify-content: space-between;
     align-items: center;
-    padding: 0 2px;
-    bottom: 5px;
 }
 
-.progress-bar {
-    position: relative;
-    height: 4px;
-    width: 100%;
-}
-
-.current-time,
-.video-duration {
+.viewing-panel-timer {
     flex-grow: 1;
     color: white;
     font-size: 17px;
     font-family: 'Roboto';
 }
 
-.video-duration {
-    margin-left: 11px;
-}
-
 .progress-bar {
+    position: relative;
+    height: 4px;
+    width: 100%;
     display: flex;
     flex-grow: 14;
-    margin-left: 11px;
-    background-color: black;
     border-radius: 2px;
-}
-
-.left-buttons {
-    display: flex;
-}
-
-.volume-button {
-    padding-left: 2px;
+    padding-left: 8px;
 }
 
 .progress-slider {
