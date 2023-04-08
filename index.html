@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
-  <head>
+  <>
     <title>Видеоплеер</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
@@ -11,122 +11,7 @@
     <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
-    <style>
-      .vp-button:focus {
-          outline: none;
-      }
-      .player {
-          width: 800px;
-          height: 600px;
-          box-shadow: 0 0 10px 5px rgba(0,0,0,0.5);
-          display: flex;
-          flex-direction: column;
-          background-color: black;
-          position: relative;
-      }
-
-      .video-container {
-          flex-grow: 1;
-          margin-top: 11px;
-      }
-
-      .player-buttons-wrapper {
-          background-color:black;
-          display: flex;
-          margin-top: 18px;
-          justify-content: space-between;
-          align-items: center;
-      }
-
-      .vp-button {
-          border-style: hidden;
-          cursor: pointer;
-          color: white;
-          background-color: transparent;
-          font-size: 20px;
-          height: 35px;
-          width: 35px;
-          padding-bottom: 9px;
-      }
-
-      .fullscreen-button {
-          width: 36px;
-          margin-left: auto;
-      }
-
-      .viewing-panel {
-          position: relative;
-          display: flex;
-          flex-grow: 1;
-          justify-content: space-between;
-          align-items: center;
-          padding: 0 2px;
-          bottom: 5px;
-      }
-
-      .progress-bar {
-          position: relative;
-          height: 4px;
-          width: 100%;
-      }
-
-      .current-time,
-      .video-duration {
-          flex-grow: 1;
-          color: white;
-          font-size: 17px;
-          font-family: 'Roboto';
-      }
-
-      .video-duration {
-          margin-left: 11px;
-      }
-
-      .progress-bar {
-          display: flex;
-          flex-grow: 14;
-          margin-left: 11px;
-          background-color: black;
-          border-radius: 2px;
-      }
-
-      .left-buttons {
-          display: flex;
-      }
-
-      .volume-button {
-          padding-left: 2px;
-      }
-
-      .progress-slider {
-          background-color: red;
-          height: 5px;
-          border-radius: 2px;
-      }
-
-      .dot {
-        height: 8px;
-        width: 8px;
-        background-color: red;
-        border: 3px solid white;
-        border-radius: 50%;
-        display: inline-block;
-        margin-left: -7px;
-        margin-top: -4px;
-        opacity: 0;
-        transition-property: opacity;
-        transition-duration: 300ms;
-        transition-timing-function: ease-out;
-      }
-
-      .progress-bar:hover .dot {
-        opacity: 1;
-        transition-property: opacity;
-        transition-duration: 300ms;
-        transition-timing-function: ease-in;
-      }
-
-    </style>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <div class="player" id="player">
